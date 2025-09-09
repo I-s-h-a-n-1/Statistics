@@ -1,0 +1,11 @@
+{
+    "imports": {
+      "./statsCalculations.js": "./statsCalculations.js",
+      "./stepGeneration.js": "./stepGeneration.js",
+      "./uiHandlers.js": "./uiHandlers.js",
+      "./pairInputHandlers.js": "./pairInputHandlers.js",
+      "./constants.js": "./constants.js"
+    }
+  }
+  
+  

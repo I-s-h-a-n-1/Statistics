@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    body{
+      margin: 0;
+      overflow: hidden;
+
+    }
+    .ball{
+      width : 50px;
+      height: 50px;
+      border-radius: 50%;
+     background-color: green;
+      position: absolute;
+    
+
+    }
+  </style>
+</head>
+<body>
+  
+  <script>
+    
+    
+
+
+
+
+  const balls = [];
+  for(let i = 0 ;  i < 200 ; i++){
+    let ball = document.createElement("div");
+    ball.classList.add("ball");
+    document.body.appendChild(ball);
+    
+    balls.push({
+      el: ball,
+      x: Math.random()*window.innerWidth,
+      y: Math.random()*window.innerHeight,
+      dx: 1 + Math.floor(Math.random()*2),
+      dy: 2 + Math.random()*2,
+      
+    });
+    
+  }
+  function bounce(){
+    balls.forEach(element =>{
+element.x += element.dx;
+element.y += element.dy;
+
+if(element.x <= 0 || element.x >= window.innerWidth - 50){ 
+  element.dx *= -1;}
+if(element.y <= 0 || element.y >= window.innerHeight - 50){ 
+  element.dy *= -1;}
+
+
+element.el.style.transform = `translate(${element.x}px, ${element.y}px)`;
+
+
+
+
+    });
+    requestAnimationFrame(bounce);
+  }
+  bounce();
+  
+  </script>
+</body>
+</html>

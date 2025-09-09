@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Home Page</title>
+
+<!-- linked Styles-->
+<link rel="stylesheet" href="Statistics.css">
+<script type="importmap" src="importmap.json"></script>
+<script type="module" src="script.js"></script>
+<link rel="stylesheet" href="MainPage.css">
+</head>
+<body>
+
+   
+ 
+
+  <div class="container">
+  
+  </div>
+
+<!-- Suspended  at the Top -->
+<div class="fixed-logo" onclick="toggleBottomBar()">
+<img src="../Statistics/Img/I-tech-logo.png" alt="Logo" class="top-logo">
+<span class="logo-text">I-Tech</span>
+</div>
+
+
+<!-- Sidebar -->
+<div id="sidebar" class="sidebar">
+
+<div class="main-container1">
+<div class="logo-container">
+<img src="../Statistics/Img/I-tech-logo.png" alt="I-tech-Logo" class="logo" onclick="defaultColor();">
+
+<span class="logo-name">I-tech</span>
+
+</div>
+
+
+<!--- side-bar-grid-->
+
+
+<div id="color-msg" class="default-color-text"></div>
+
+<div class="side-bar-all-img-container">
+
+<div class="side-bar-each-img-container" onclick="changeColor();"><img src="../Statistics/Img/color-img.jpg" alt="color-img" class="color-img" >
+</div>
+
+
+<div class="side-bar-each-img-container"><img src="../Statistics/Img/binary.jpeg" alt="color-img" class="color-img" >
+</div>
+<div class="side-bar-each-img-container"><img src="../Statistics/Img/probability.png" alt="color-img" class="color-img" >
+</div>
+  
+ 
+
+</div>
+
+
+</div>
+</div>
+<!-- Main Content -->
+<div id="main-content" class="main-content">
+<img src="../Statistics/Img/SideMenu.jpg" alt="Menu" onclick="toggleSidebar()" class="sideMenu" id="Menu">
+
+
+
+
+<div class="stat-container">
+       
+  <section class="card data-input-section">
+      <h2>Data Input</h2>
+      <div class="segmented-control">
+          <input type="radio" name="dataType" id="dataTypeRaw" value="raw" checked>
+          <label for="dataTypeRaw">Raw Data</label>
+
+          <input type="radio" name="dataType" id="dataTypeUngrouped" value="ungrouped">
+          <label for="dataTypeUngrouped">Ungrouped Data</label>
+
+          <input type="radio" name="dataType" id="dataTypeGrouped" value="grouped">
+          <label for="dataTypeGrouped">Grouped Data</label>
+      </div>
+
+      <div id="rawInputArea" class="input-area active">
+          <label for="rawData">Enter numbers separated by commas:</label>
+          <textarea id="rawData" placeholder="e.g., 1, 3, 6, 8, 9, 10, 12"></textarea>
+      </div>
+
+      <div id="ungroupedInputArea" class="input-area">
+          <p>Input value-frequency pairs:</p>
+          <div id="ungroupedPairs">
+              <!-- Pairs will be added here -->
+          </div>
+          <button id="addUngroupedPairBtn" class="btn">Add Pair</button>
+      </div>
+
+      <div id="groupedInputArea" class="input-area">
+           <p>Input class interval and frequency pairs:</p>
+          <div id="groupedPairs">
+              <!-- Pairs will be added here -->
+          </div>
+          <button id="addGroupedPairBtn" class="btn">Add Interval</button>
+      </div>
+
+      <button id="calculateBtn" class="btn primary">Calculate</button>
+      <button id="showStepsBtn" class="btn">Show Steps</button> 
+  </section>
+
+  <section class="card results-section">
+      <h2>Results</h2>
+      <div id="results">
+          <!-- Results will be displayed here -->
+      </div>
+  </section>
+
+  <section id="steps-section" class="card steps-section">
+      <h2>Calculation Steps</h2>
+      <div id="steps-content">
+           <!-- Steps will be displayed here -->
+      </div>
+  </section>
+
+  <footer>
+      <p>&copy; Designed by Ishan </p>
+  </footer>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- Hidden Bottom Bar -->
+<div id="bottom-bar" class="bottom-bar">
+<div class="bar-content">
+<div class="date-display"></div>
+
+
+</div>
+</div>
+
+<script >
+
+(function (){
+let date= new Date();
+document.querySelector('.date-display').innerHTML=date.toDateString();})();
+
+function toggleBottomBar() {
+const bottomBar = document.getElementById('bottom-bar');
+bottomBar.classList.toggle('bottom-bar-open');}
+
+function toggleSidebar() {
+document.body.classList.toggle('sidebar-open');
+
+}
+
+function changeColor(){
+let color1=Math.floor( Math.random()*225)-10;
+let color2=Math.floor( Math.random()*225)-30;
+let color3=Math.floor( Math.random()*225)-5;
+let color4=Math.floor( Math.random()*215)+1;
+let color5=Math.floor( Math.random()*215);
+let color6=Math.floor( Math.random()*215);
+document.getElementById('sidebar').style.background=`rgb(${color4}, ${color5}, ${color6})`;
+
+document.body.style.background=`rgb(${color1}, ${color3}, ${color3})`;
+document.querySelector(".default-color-text").innerHTML="Click on the logo in the top left coner to change to default colour";
+document.querySelector('.logo').style='box-shadow: 4px 4px 4px rgb(255, 255, 255);'
+
+document.getElementById("color-msg").classList.add("active");
+}
+function defaultColor(){
+document.getElementById('sidebar').style.background=`grey`;
+document.body.style.backgroundColor= `#c4c4c4`
+document.querySelector(".default-color-text").innerHTML="";
+document.querySelector('.logo').style="box-shadow: 4px 10px 4px black; "
+document.getElementById("color-msg").classList.remove("active")
+}
+
+function mainTimer(){
+window.location.href="../Side-bar-cont/StopWatch.html";
+}
+
+
+function Timer(){
+window.open("../Bottom-file/StopWatchPop.html","popupWindow", "width=100, height= 200px ,resizable=yes" );
+}
+
+function  calculateLayer(){
+window.location.href="../Sub-Pages/Calculate-Layer.html";
+}
+
+
+
+
+
+//bubbles
+
+function getRandomInt(min, max) {
+    min = Math.ceil(min);
+    max = Math.floor(max);
+    return Math.floor(Math.random() * (max - min + 1)) + min;
+  }
+
+
+  const container = document.querySelector('.container');
+  const numCaxxrs = 40;
+  const numTools = 55;
+  
+  function createMover(className) {
+    const mover = document.createElement('div');
+    mover.classList.add('mover', className);
+    container.appendChild(mover);
+    return mover;
+  }
+  
+  function initializeMovers(numMovers, className) {
+    const movers = [];
+    for (let i = 0; i < numMovers; i++) {
+      const mover = createMover(className);
+      moveMover(mover);
+      movers.push(mover);
+    }
+    return movers;
+  }
+  
+  
+  function moveMover(mover) {
+    const maxX = window.innerWidth - mover.offsetWidth;
+    const maxY = window.innerHeight - mover.offsetHeight;
+  
+    let x = getRandomInt(0, maxX);
+    let y = getRandomInt(0, maxY);
+    let speedX = (Math.random() - 0.5) * 4; 
+    let speedY = (Math.random() - 0.5) * 4;
+  
+  
+    function animate() {
+      x += speedX;
+      y += speedY;
+  
+      // Bounce off the walls
+      if (x <= 0 || x >= maxX) {
+        speedX = -speedX;
+      }
+      if (y <= 0 || y >= maxY) {
+        speedY = -speedY;
+      }
+  
+      mover.style.transform = `translate(${x}px, ${y}px)`;
+      requestAnimationFrame(animate);
+    }
+  
+    animate();
+  }
+  
+  const cars = initializeMovers(numCars, 'car');
+  const tools = initializeMovers(numTools, 'tool');
+  const brake = initializeMovers(200,"brake")
+</script>
+
+</body>
+</html>
